@@ -17,7 +17,6 @@ services:
         value: llama-3.1-8b-instant
       - key: COMFYUI_URL
         sync: false
-
 databases:
   - name: glitrai-content-engine-db
     plan: free
