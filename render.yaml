@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: glitrai-content-engine
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT --workers 2 --threads 4
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: glitrai-content-engine-db
+          property: connectionString
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.1-8b-instant
+      - key: COMFYUI_URL
+        sync: false
+
+databases:
+  - name: glitrai-content-engine-db
+    plan: free

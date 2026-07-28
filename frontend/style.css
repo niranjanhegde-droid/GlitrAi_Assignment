@@ -1,0 +1,200 @@
+:root {
+  --ink: #24261f;
+  --paper: #faf6ee;
+  --accent: #3a5c52;
+  --accent-soft: #dfe9e2;
+  --border: #d8d0bf;
+  --pending: #b08900;
+  --processing: #2563eb;
+  --completed: #1a7a45;
+  --failed: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+header {
+  padding: 32px 24px 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+header h1 { margin: 0 0 4px; font-size: 1.6rem; }
+.subtitle { margin: 0; color: #6b6b60; }
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+  display: grid;
+  gap: 24px;
+}
+
+.panel {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.panel h2 { margin-top: 0; font-size: 1.1rem; }
+
+form { display: flex; flex-direction: column; gap: 6px; }
+
+label { font-size: 0.85rem; font-weight: 600; margin-top: 8px; }
+
+input, textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+
+#submit-btn {
+  margin-top: 16px;
+  background: var(--accent);
+  color: white;
+  width: fit-content;
+}
+
+#submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+#submit-status { font-size: 0.85rem; color: #6b6b60; min-height: 1.2em; }
+
+.jobs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#refresh-btn {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.job-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.job-card:last-child { border-bottom: none; }
+
+.job-info { display: flex; flex-direction: column; gap: 2px; }
+.job-name { font-weight: 600; }
+.job-desc { font-size: 0.8rem; color: #6b6b60; max-width: 480px; }
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge.pending { background: #fdf0cb; color: var(--pending); }
+.badge.processing { background: #dbe6fe; color: var(--processing); }
+.badge.completed { background: #d4f2e0; color: var(--completed); }
+.badge.failed { background: #fbdcd9; color: var(--failed); }
+
+.job-actions button {
+  background: none;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-size: 0.8rem;
+  padding: 6px 12px;
+}
+
+.job-actions button:disabled {
+  border-color: var(--border);
+  color: #a3a396;
+  cursor: not-allowed;
+}
+
+.empty-state { color: #6b6b60; font-size: 0.9rem; padding: 12px 0; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal.hidden { display: none; }
+
+.modal-content {
+  background: white;
+  border-radius: 10px;
+  padding: 24px;
+  max-width: 560px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+#modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #6b6b60;
+}
+
+.modal-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #6b6b60;
+  margin-top: 14px;
+}
+
+.modal-reference-wrap.hidden { display: none; }
+
+#modal-reference-image {
+  width: 140px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  margin-top: 6px;
+  display: block;
+}
+
+#modal-image {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  margin-top: 6px;
+}
+
+#modal-prompt {
+  font-size: 0.85rem;
+  color: #6b6b60;
+  font-style: italic;
+}

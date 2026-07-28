@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GlitrAI - Mini Content Engine</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Mini Content Engine</h1>
+    <p class="subtitle">Product in, AI creative out. Submit a product below and watch the job move through the pipeline.</p>
+  </header>
+
+  <main>
+    <section class="panel" id="submit-panel">
+      <h2>New job</h2>
+      <form id="generate-form">
+        <label for="product_name">Product name</label>
+        <input type="text" id="product_name" name="product_name" placeholder="e.g. Florentine Wooden Salad Bowl" required />
+
+        <label for="description">Short description</label>
+        <textarea id="description" name="description" rows="3" placeholder="A match made in summer - salads and wooden bowls..." required></textarea>
+
+        <label for="product_image">Product image (optional)</label>
+        <input type="file" id="product_image" name="product_image" accept="image/png,image/jpeg,image/webp" />
+
+        <button type="submit" id="submit-btn">Generate</button>
+      </form>
+      <p id="submit-status"></p>
+    </section>
+
+    <section class="panel" id="jobs-panel">
+      <div class="jobs-header">
+        <h2>Jobs</h2>
+        <button id="refresh-btn" title="Refresh list">Refresh</button>
+      </div>
+      <div id="jobs-list"></div>
+    </section>
+  </main>
+
+  <div id="result-modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="modal-close">&times;</button>
+      <h3 id="modal-title"></h3>
+      <p id="modal-prompt"></p>
+      <div id="modal-reference-wrap" class="modal-reference-wrap hidden">
+        <span class="modal-label">Reference image used</span>
+        <img id="modal-reference-image" alt="Reference image" />
+      </div>
+      <span class="modal-label">Result</span>
+      <img id="modal-image" alt="Generated result" />
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

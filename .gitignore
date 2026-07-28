@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.env
+backend/content_engine.db
+backend/static/generated/*.png
+!backend/static/generated/.gitkeep
+backend/static/uploads/*
+!backend/static/uploads/.gitkeep
+.DS_Store
+venv/
